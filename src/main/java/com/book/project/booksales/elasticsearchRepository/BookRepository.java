@@ -1,13 +1,13 @@
-package com.book.project.booksales.repository;
+package com.book.project.booksales.elasticsearchRepository;
 
 import com.book.project.booksales.entity.Book;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long> {
+public interface BookRepository extends ElasticsearchRepository<Book, String> {
 
     List<Book> findByName(String name);
 

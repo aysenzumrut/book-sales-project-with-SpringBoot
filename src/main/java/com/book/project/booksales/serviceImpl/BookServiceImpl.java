@@ -1,7 +1,7 @@
 package com.book.project.booksales.serviceImpl;
 
 import com.book.project.booksales.entity.Book;
-import com.book.project.booksales.repository.BookRepository;
+import com.book.project.booksales.elasticsearchRepository.BookRepository;
 import com.book.project.booksales.service.BookService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +17,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAllBooks() {
-        return bookRepository.findAll();
+        return (List<Book>) bookRepository.findAll();
     }
-
+/*
     @Override
     public List<Book> searchBooks(String keyword) {
         return null;
@@ -64,5 +64,5 @@ public class BookServiceImpl implements BookService {
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
 
-    }
+    }*/
 }

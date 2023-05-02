@@ -8,7 +8,7 @@ public interface BookService {
 
     List<Book> getAllBooks();
 
-    List<Book> searchBooks(String keyword);
+/*    List<Book> searchBooks(String keyword);
 
     Book saveBook(Book book);
 
@@ -16,7 +16,7 @@ public interface BookService {
 
     void decreaseStockCount(Long id);
 
-    void deleteBook(Long id);
+    void deleteBook(Long id);*/
 
 
 }

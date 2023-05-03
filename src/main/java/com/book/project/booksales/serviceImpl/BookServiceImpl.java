@@ -1,24 +1,28 @@
 package com.book.project.booksales.serviceImpl;
 
-import com.book.project.booksales.entity.Book;
 import com.book.project.booksales.elasticsearchRepository.BookRepository;
+import com.book.project.booksales.entity.Book;
 import com.book.project.booksales.service.BookService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService {
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository repository;
 
-    @Override
-    public List<Book> getAllBooks() {
-        return (List<Book>) bookRepository.findAll();
+    public List<Book> getAllDocuments() {
+        List<Book> documents = new ArrayList<>();
+        repository.findAll().forEach(documents::add);
+        return documents;
     }
+
+
+
 /*
     @Override
     public List<Book> searchBooks(String keyword) {

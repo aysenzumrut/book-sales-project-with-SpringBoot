@@ -9,6 +9,8 @@ public interface BookService {
 
 
     List<Book> getAllDocuments();
+    Book updateBook(Book book);
+    void decreaseStockCount(String id);
 
 
 }

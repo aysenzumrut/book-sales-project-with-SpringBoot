@@ -5,25 +5,34 @@ import com.book.project.booksales.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/books/api")
 public class BookController {
 
     @Autowired
-    private BookService myDocumentService;
+    private BookService bookService;
 
-    @GetMapping("/books")
+    @GetMapping("/allbooks")
     public ResponseEntity<List<Book>> getAllDocuments() {
-        List<Book> documents = myDocumentService.getAllDocuments();
+        List<Book> documents = bookService.getAllDocuments();
         if (documents.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(documents, HttpStatus.OK);
     }
+
+    @PutMapping("/decreaseStock")
+    public ResponseEntity<?> decreaseStockCount(@RequestParam("id") String id) {
+        try {
+            bookService.decreaseStockCount(id);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
+

@@ -7,32 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService {
     @Autowired
-    private BookRepository repository;
+    private BookRepository bookRepository;
 
     public List<Book> getAllDocuments() {
         List<Book> documents = new ArrayList<>();
-        repository.findAll().forEach(documents::add);
+        bookRepository.findAll().forEach(documents::add);
         return documents;
     }
 
-
-
-/*
-    @Override
-    public List<Book> searchBooks(String keyword) {
-        return null;
-    }
-
-    @Override
-    public Book saveBook(Book book) {
-        return bookRepository.save(book);
-    }
 
     @Override
     public Book updateBook(Book book) {
@@ -52,10 +42,10 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public void decreaseStockCount(Long id) {
+    public void decreaseStockCount(String id) {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Book Not Found"));
-        int stockCount = book.getStock();
+        Long stockCount = book.getStock();
         if (stockCount > 0) {
             book.setStock(stockCount - 1);
         } else {
@@ -63,10 +53,4 @@ public class BookServiceImpl implements BookService {
         }
         bookRepository.save(book);
     }
-
-    @Override
-    public void deleteBook(Long id) {
-        bookRepository.deleteById(id);
-
-    }*/
 }

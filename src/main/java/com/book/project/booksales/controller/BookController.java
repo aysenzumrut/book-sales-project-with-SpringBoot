@@ -35,7 +35,7 @@ public class BookController {
     public ResponseEntity<?> decreaseStockCount(@RequestParam("name") String name) {
         try {
             bookService.decreaseStockCount(name);
-            return ResponseEntity.ok().build();
+            return  ResponseEntity.status(HttpStatus.OK).body("The book was purchased.");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

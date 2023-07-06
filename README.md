@@ -1,7 +1,17 @@
 # book-sales-project-with-SpringBoot
 Book Sales Spring Boot Project
+-Proje 8082 portunda çalışmaktadır. Tercihe göre değiştirilebilir.
+  Bu Projede:
+    1->Tüm Verileri Listeleme,
+    2->Verileri Güncelleme veya Kaydetme,
+    3->Stok Azaltma,
+    4->Veri Silme,
+    5->Belirlenen Fieldlara Göe Sorgulama Yapma İşlemleri Yapılabilmektedir.
 
-
+-Bu projede veriler Elasticsearch Kibana arayüzünden ya da Rest API'den oluşturulan Post metodu ile veriler eklenebilir.
+-Ayrıca Proje İçerisinde kullanılabilecek Alternatif metodlar yorum satırına alınmıştır.    
+-Bu projede veriler Elasticsearch'te tutulmaktadır. Elasticsearch için kullanılan Docker-Compose File içeriği aşağıda verilmiştir. 
+  
 #Elasticsearch Docker-Compose File
 version: "3.0"
 services:
@@ -35,3 +45,5 @@ volumes:
 networks:
   es-net:
     driver: bridge
+
+

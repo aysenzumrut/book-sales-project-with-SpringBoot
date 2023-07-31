@@ -1,18 +1,27 @@
-# book-sales-project-with-SpringBoot
-Book Sales Spring Boot Project
--Proje 8082 portunda çalışmaktadır. Tercihe göre değiştirilebilir.
-  Bu Projede:
-    1->Tüm Verileri Listeleme,
-    2->Verileri Güncelleme veya Kaydetme,
-    3->Stok Azaltma,
-    4->Veri Silme,
-    5->Belirlenen Fieldlara Göe Sorgulama Yapma İşlemleri Yapılabilmektedir.
+# Book Sales Project with Spring Boot and Elasticsearch
+## Purpose 
 
--Bu projede veriler Elasticsearch Kibana arayüzünden ya da Rest API'den oluşturulan Post metodu ile veriler eklenebilir.
--Ayrıca Proje İçerisinde kullanılabilecek Alternatif metodlar yorum satırına alınmıştır.    
--Bu projede veriler Elasticsearch'te tutulmaktadır. Elasticsearch için kullanılan Docker-Compose File içeriği aşağıda verilmiştir. 
-  
-#Elasticsearch Docker-Compose File
+- This project was written to develop a Spring Boot Rest API using elasticsearch and docker. An elasticsearch container has been created with the docker-compose.yaml file. And an index named books has been created in this elasticsearch. The project entity is linked to this index. Data viewing, updating, deleting and new data recording operations are performed in this index.
+- In this project, while the java file is connected to the localhost port 8082, elasticsearch and kibana are running on the virtual machine over linux ubuntu.
+
+## Technologies
+- Java 17
+- Spring Boot 2.4.8
+- Maven
+- Elasticsearch
+- Docker
+
+## Features
+1->Tüm Verileri Listeleme, 2->Verileri Güncelleme veya Kaydetme, 3->Stok Azaltma, 4->Veri Silme, 5->Belirlenen Fieldlara Göe Sorgulama Yapma İşlemler
+- Get All Books
+- Update or Save Book
+- Stock Decrease by Name
+- Delete Book By Id
+- Search Books Acording to Name, Author or Category
+
+## docker-compose.yaml
+- Elasticsearch and kibana containers are started by typing 'docker compose up' command in the terminal. After that, the project is up and running.
+```
 version: "3.0"
 services:
   elasticsearch:
@@ -45,5 +54,6 @@ volumes:
 networks:
   es-net:
     driver: bridge
+```
 
 

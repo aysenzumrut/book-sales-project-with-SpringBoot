@@ -12,7 +12,6 @@
 - Docker
 
 ## Features
-1->Tüm Verileri Listeleme, 2->Verileri Güncelleme veya Kaydetme, 3->Stok Azaltma, 4->Veri Silme, 5->Belirlenen Fieldlara Göe Sorgulama Yapma İşlemler
 - Get All Books
 - Update or Save Book
 - Stock Decrease by Name
